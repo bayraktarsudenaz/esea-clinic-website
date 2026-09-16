@@ -268,14 +268,27 @@
     }
 
     @media (max-width: 850px){
+      .page{
+        /* Safari uses #071739 for its browser chrome. Keep BOTH page edges
+           on that exact color, while allowing the center to become deeper. */
+        background:
+          linear-gradient(180deg,
+            #071739 0px,
+            #071739 110px,
+            #0a1b38 230px,
+            #071739 42%,
+            #050f25 76%,
+            #06132f 88%,
+            #071739 100%);
+      }
       .wrap{
         grid-template-columns:1fr;
         gap:30px;
-        align-content:start;
+        align-content:center;
         width:100%;
-        padding-top:max(16px, env(safe-area-inset-top, 0px));
+        padding-top:max(64px, calc(42px + env(safe-area-inset-top, 0px)));
         padding-right:max(24px, env(safe-area-inset-right, 0px));
-        padding-bottom:max(28px, env(safe-area-inset-bottom, 0px));
+        padding-bottom:max(86px, calc(62px + env(safe-area-inset-bottom, 0px)));
         padding-left:max(24px, env(safe-area-inset-left, 0px));
       }
       .left{
@@ -313,20 +326,30 @@
         letter-spacing:.28em;
       }
       .svc{font-size:9px}
-      .arc{right:-340px}
-      .arc-2{right:-180px; top:220px; width:320px; height:320px}
-      .footer{
-        left:0;
-        right:0;
-        bottom:max(18px, env(safe-area-inset-bottom, 0px));
-        text-align:center;
+      .glow.one{
+        top:150px;
+        right:-190px;
+        opacity:.58;
       }
-      .watermark{
-        left:50%;
-        transform:translateX(-50%);
-        bottom:-2vh;
-        font-size:clamp(160px,44vw,320px);
+      .glow.two{
+        bottom:90px;
+        opacity:.18;
       }
+      .arc{
+        right:-340px;
+        top:128px;
+        /* The desktop halo shadow was tinting the very top of iOS Safari.
+           Keep the line art, remove the large spread shadow on mobile. */
+        box-shadow:none;
+      }
+      .arc-2{
+        right:-180px;
+        top:300px;
+        width:320px;
+        height:320px;
+      }
+      .footer{left:0; right:0; bottom:max(26px, env(safe-area-inset-bottom, 0px)); text-align:center}
+      .watermark{left:50%; transform:translateX(-50%); bottom:54px; font-size:clamp(160px,44vw,320px)}
     }
 
     @media (prefers-reduced-motion: reduce){
