@@ -268,25 +268,14 @@
     }
 
     @media (max-width: 850px){
-      .page{
-        /* Keep the very top identical to Safari's theme color.
-           Decorative light starts lower so the browser/page boundary disappears. */
-        background:
-          linear-gradient(180deg,
-            #071739 0px,
-            #071739 76px,
-            #081a37 190px,
-            #071739 62%,
-            #050f25 100%);
-      }
       .wrap{
         grid-template-columns:1fr;
         gap:30px;
-        align-content:center;
+        align-content:start;
         width:100%;
-        padding-top:max(64px, calc(42px + env(safe-area-inset-top, 0px)));
+        padding-top:max(16px, env(safe-area-inset-top, 0px));
         padding-right:max(24px, env(safe-area-inset-right, 0px));
-        padding-bottom:max(86px, calc(62px + env(safe-area-inset-bottom, 0px)));
+        padding-bottom:max(28px, env(safe-area-inset-bottom, 0px));
         padding-left:max(24px, env(safe-area-inset-left, 0px));
       }
       .left{
@@ -324,23 +313,20 @@
         letter-spacing:.28em;
       }
       .svc{font-size:9px}
-      .glow.one{
-        top:76px;
-        right:-190px;
-        opacity:.72;
+      .arc{right:-340px}
+      .arc-2{right:-180px; top:220px; width:320px; height:320px}
+      .footer{
+        left:0;
+        right:0;
+        bottom:max(18px, env(safe-area-inset-bottom, 0px));
+        text-align:center;
       }
-      .arc{
-        right:-340px;
-        top:36px;
+      .watermark{
+        left:50%;
+        transform:translateX(-50%);
+        bottom:-2vh;
+        font-size:clamp(160px,44vw,320px);
       }
-      .arc-2{
-        right:-180px;
-        top:250px;
-        width:320px;
-        height:320px;
-      }
-      .footer{left:0; right:0; bottom:max(20px, env(safe-area-inset-bottom, 0px)); text-align:center}
-      .watermark{left:50%; transform:translateX(-50%); bottom:-2vh; font-size:clamp(160px,44vw,320px)}
     }
 
     @media (prefers-reduced-motion: reduce){
