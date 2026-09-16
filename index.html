@@ -26,7 +26,7 @@
     }
 
     *{box-sizing:border-box}
-    html,body{margin:0;min-height:100%;background:var(--deep)}
+    html,body{margin:0;min-height:100%;background:#071739}
     body{
       font-family:Manrope,system-ui,sans-serif;
       color:var(--sand);
@@ -41,10 +41,6 @@
       min-height:100svh;
       min-height:100dvh;
       overflow:hidden;
-      padding-top:env(safe-area-inset-top, 0px);
-      padding-right:env(safe-area-inset-right, 0px);
-      padding-bottom:env(safe-area-inset-bottom, 0px);
-      padding-left:env(safe-area-inset-left, 0px);
       background:
         radial-gradient(72% 90% at 88% 0%, rgba(25,57,88,.95) 0%, rgba(13,35,66,.95) 28%, rgba(7,23,57,1) 62%, rgba(5,15,37,1) 100%);
       isolation:isolate;
@@ -129,9 +125,9 @@
     .wrap{
       position:relative;
       z-index:2;
-      min-height:calc(100vh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-      min-height:calc(100svh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
-      min-height:calc(100dvh - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+      min-height:100vh;
+      min-height:100svh;
+      min-height:100dvh;
       width:min(1240px, calc(100% - 48px));
       margin:auto;
       display:grid;
@@ -272,11 +268,22 @@
     }
 
     @media (max-width: 850px){
+      .page{
+        /* Safari's status/browser area can only be a solid UI color.
+           Start the artwork with the exact same navy so there is no visible seam. */
+        background:
+          radial-gradient(115% 78% at 92% 16%, rgba(31,65,96,.62) 0%, rgba(13,35,66,.42) 34%, rgba(7,23,57,0) 66%),
+          linear-gradient(180deg, #071739 0%, #071739 8%, #081a37 30%, #071739 65%, #050f25 100%);
+      }
       .wrap{
         grid-template-columns:1fr;
         gap:30px;
         align-content:center;
-        padding:calc(78px + env(safe-area-inset-top, 0px)) 0 calc(86px + env(safe-area-inset-bottom, 0px));
+        width:100%;
+        padding-top:max(64px, calc(42px + env(safe-area-inset-top, 0px)));
+        padding-right:max(24px, env(safe-area-inset-right, 0px));
+        padding-bottom:max(86px, calc(62px + env(safe-area-inset-bottom, 0px)));
+        padding-left:max(24px, env(safe-area-inset-left, 0px));
       }
       .left{
         padding-left:0;
@@ -315,7 +322,7 @@
       .svc{font-size:9px}
       .arc{right:-340px}
       .arc-2{right:-180px; top:220px; width:320px; height:320px}
-      .footer{left:0; right:0; text-align:center}
+      .footer{left:0; right:0; bottom:max(20px, env(safe-area-inset-bottom, 0px)); text-align:center}
       .watermark{left:50%; transform:translateX(-50%); bottom:-2vh; font-size:clamp(160px,44vw,320px)}
     }
 
