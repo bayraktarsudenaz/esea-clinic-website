@@ -269,11 +269,15 @@
 
     @media (max-width: 850px){
       .page{
-        /* Safari's status/browser area can only be a solid UI color.
-           Start the artwork with the exact same navy so there is no visible seam. */
+        /* Keep the very top identical to Safari's theme color.
+           Decorative light starts lower so the browser/page boundary disappears. */
         background:
-          radial-gradient(115% 78% at 92% 16%, rgba(31,65,96,.62) 0%, rgba(13,35,66,.42) 34%, rgba(7,23,57,0) 66%),
-          linear-gradient(180deg, #071739 0%, #071739 8%, #081a37 30%, #071739 65%, #050f25 100%);
+          linear-gradient(180deg,
+            #071739 0px,
+            #071739 76px,
+            #081a37 190px,
+            #071739 62%,
+            #050f25 100%);
       }
       .wrap{
         grid-template-columns:1fr;
@@ -320,8 +324,21 @@
         letter-spacing:.28em;
       }
       .svc{font-size:9px}
-      .arc{right:-340px}
-      .arc-2{right:-180px; top:220px; width:320px; height:320px}
+      .glow.one{
+        top:76px;
+        right:-190px;
+        opacity:.72;
+      }
+      .arc{
+        right:-340px;
+        top:36px;
+      }
+      .arc-2{
+        right:-180px;
+        top:250px;
+        width:320px;
+        height:320px;
+      }
       .footer{left:0; right:0; bottom:max(20px, env(safe-area-inset-bottom, 0px)); text-align:center}
       .watermark{left:50%; transform:translateX(-50%); bottom:-2vh; font-size:clamp(160px,44vw,320px)}
     }
